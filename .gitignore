@@ -1,0 +1,7 @@
+fabric-samples/
+test-network/
+test-network0/
+chaincode/node_modules/
+chaincode_property/node_modules/
+network/
+application/node_modules/
