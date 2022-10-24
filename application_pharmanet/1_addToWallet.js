@@ -34,6 +34,6 @@ async function main(certificatePath, keyFilePath) {
 	}
 }
 
-const certPath = '/home/upgrad/certification-network/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem';
-const keyFilePath = '/home/upgrad/certification-network/test-network/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk';
+const certPath = '/home/upgrad/certification-network/test-network0/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem';
+const keyFilePath = '/home/upgrad/certification-network/test-network0/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk';
 main(certPath,keyFilePath);

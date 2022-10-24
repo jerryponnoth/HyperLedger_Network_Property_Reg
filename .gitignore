@@ -5,3 +5,8 @@ chaincode/node_modules/
 chaincode_property/node_modules/
 network/
 application/node_modules/
+application/identity/
+application_pharmanet/node_modules/
+application_pharmanet/identity/
+config/
+chaincode_pharmanet/node_modules/
