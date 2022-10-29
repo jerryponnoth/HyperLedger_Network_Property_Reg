@@ -5,18 +5,18 @@ const {Wallets, Gateway} = require('fabric-network');
 const yaml = require('js-yaml');
 let gateway;
 
-async function getContractInstance() {
+async function getContractInstance(mspId) {
   gateway = new Gateway();
-  const connectionprofile  = yaml.load(fs.readFileSync('./connection-org1.yaml','utf8'));
-  const wallet = await Wallets.newFileSystemWallet('./identity/org1');
+  const connectionprofile  = yaml.load(fs.readFileSync('./connection_profiles/' + mspId + '.yaml','utf8'));
+  const wallet = await Wallets.newFileSystemWallet('./identity/'+ mspId);
   const gatewayoptions = {
     wallet: wallet,
-    identity: 'ADMIN_ORG1',
+    identity: 'ADMIN_'+ mspId,
     discovery:  {enabled: true, asLocalhost:  true}
   }
   await gateway.connect(connectionprofile,gatewayoptions);
 
-  const channel = await gateway.getNetwork('mychannel');
+  const channel = await gateway.getNetwork('pharmachannel');
   return channel.getContract('pharmanet','PharmaContract');
 }
 

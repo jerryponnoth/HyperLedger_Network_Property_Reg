@@ -4,12 +4,12 @@
 const fs = require('fs'); // FileSystem Library
 const {Wallets} = require('fabric-network');
 
-async function main(certificatePath, keyFilePath) {
+async function main(certificatePath, keyFilePath, mspId) {
 
 	// Main try/catch block
 	try {
 
-    const wallet = await Wallets.newFileSystemWallet('./identity/org1');
+    const wallet = await Wallets.newFileSystemWallet('./identity/' + mspId);
 
 		// Fetch the credentials from our previously generated Crypto Materials required to create this user's identity
 		const certificate = fs.readFileSync(certificatePath).toString();
@@ -21,12 +21,12 @@ async function main(certificatePath, keyFilePath) {
         certificate:  certificate,
         privateKey: privateKey
       },
-      mspId:  'Org1MSP',
+      mspId: mspId,
       type: 'X.509'
     };
 
-    await wallet.put('ADMIN_ORG1',identity);
-    console.log('Successfully addded Identity to the wallet');
+    await wallet.put('ADMIN_'+ mspId, identity);
+    console.log(`Successfully addded Identity ${mspId} to the wallet`);
 
 	} catch (error) {
 		console.log(`Error adding to wallet. ${error}`);
@@ -34,6 +34,7 @@ async function main(certificatePath, keyFilePath) {
 	}
 }
 
-const certPath = '/home/upgrad/certification-network/test-network0/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem';
-const keyFilePath = '/home/upgrad/certification-network/test-network0/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk';
-main(certPath,keyFilePath);
+// const certPath = '/home/upgrad/certification-network/test-network0/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org2.example.com-cert.pem';
+// const keyFilePath = '/home/upgrad/certification-network/test-network0/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk';
+// main(certPath,keyFilePath);
+module.exports.execute = main;

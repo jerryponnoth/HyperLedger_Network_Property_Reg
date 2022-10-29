@@ -6,11 +6,11 @@
 
 const helper = require('./contractHelper');
 
-async function main(drugName, serialNo) {
+async function main(drugName, serialNo, mspId) {
 
 	try {
 
-		const pharmanetContract = await helper.getContractInstance();
+		const pharmanetContract = await helper.getContractInstance(mspId);
 
 		// View drug history
 		console.log('.....View Drug History');

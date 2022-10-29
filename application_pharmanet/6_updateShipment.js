@@ -6,11 +6,11 @@
 
 const helper = require('./contractHelper');
 
-async function main(buyerCRN, drugName, transporterCRN) {
+async function main(buyerCRN, drugName, transporterCRN, mspId) {
 
 	try {
 
-		const pharmanetContract = await helper.getContractInstance();
+		const pharmanetContract = await helper.getContractInstance(mspId);
 
 		// Update shipment
 		console.log('.....Update Shipment');

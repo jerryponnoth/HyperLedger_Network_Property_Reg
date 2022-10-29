@@ -6,12 +6,13 @@
 
 const helper = require('./contractHelper');
 
-async function main(buyerCRN, drugName, listOfAssets, transporterCRN) {
+async function main(buyerCRN, drugName, listOfAssets, transporterCRN, mspId) {
 
 	try {
 
-		const pharmanetContract = await helper.getContractInstance();
+		const pharmanetContract = await helper.getContractInstance(mspId);
     const assetList = JSON.stringify(listOfAssets);
+		console.log(buyerCRN,drugName,listOfAssets,transporterCRN,mspId)
 		// Create shipment
 		console.log('.....Create Shipment');
 		const responseBuffer = await pharmanetContract.submitTransaction('createShipment', buyerCRN, drugName, assetList, transporterCRN);

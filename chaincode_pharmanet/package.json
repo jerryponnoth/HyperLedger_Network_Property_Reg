@@ -1,7 +1,7 @@
 {
-  "name": "regnet",
+  "name": "pharmanet",
   "version": "0.0.1",
-  "description": "Registration Network",
+  "description": "Pharmaceutical Drug Counterfiet Prevention Network",
   "main": "index.js",
   "engines": {
     "node": ">=8",
@@ -14,7 +14,7 @@
     "mocha": "mocha test --recursive"
   },
   "engineStrict": true,
-  "author": "Aakash Bansal",
+  "author": "Jerry Ponnoth",
   "dependencies": {
     "fabric-contract-api": "^2.0.0",
     "fabric-shim": "^2.0.0"

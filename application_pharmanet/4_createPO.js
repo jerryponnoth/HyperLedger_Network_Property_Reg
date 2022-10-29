@@ -10,11 +10,11 @@
 // let gateway;
 const helper = require('./contractHelper');
 
-async function main(buyerCRN, sellerCRN, drugName, quantity) {
+async function main(buyerCRN, sellerCRN, drugName, quantity, mspId) {
 
 	try {
 
-		const pharmanetContract = await helper.getContractInstance();
+		const pharmanetContract = await helper.getContractInstance(mspId);
 
 		// Create a new student account
 		console.log('.....Create Purchase Order');

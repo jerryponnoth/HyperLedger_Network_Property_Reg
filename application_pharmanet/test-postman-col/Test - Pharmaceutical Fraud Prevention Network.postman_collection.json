@@ -1,0 +1,682 @@
+{
+	"info": {
+		"_postman_id": "86db7e1a-af00-426d-991a-1a7e2316664c",
+		"name": "Test - Pharmaceutical Fraud Prevention Network",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add To Wallet : Org1MSP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"certPath\": \"/home/upgrad/certification-network/test-network0/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem\",\n    \"keyFilePath\":\"/home/upgrad/certification-network/test-network0/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/addToWallet",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addToWallet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add To Wallet : Org2MSP",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"certPath\": \"/home/upgrad/certification-network/test-network0/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/signcerts/Admin@org2.example.com-cert.pem\",\n    \"keyFilePath\":\"/home/upgrad/certification-network/test-network0/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp/keystore/priv_sk\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/addToWallet",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addToWallet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Manufacturer: Cipla",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyCRN\": \"CIPLA001\",\n    \"companyName\": \"Cipla Denison\",\n    \"location\": {\n        \"address\": {\n            \"Street\": \"123ABCWay\",\n            \"City\": \"Dallas\",\n            \"State\": \"TX\",\n            \"Zip\": 75089\n        }\n    },\n    \"organizationRole\": \"Manufacturer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/registerCompany",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"registerCompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Distributer: Wallgreens",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyCRN\": \"WALLGREENS001\",\n    \"companyName\": \"Wall Greens Dalls\",\n    \"location\": {\n        \"address\": {\n            \"Street\": \"123WallWay\",\n            \"City\": \"Dallas\",\n            \"State\": \"TX\",\n            \"Zip\": 75089\n        }\n    },\n    \"organizationRole\": \"Distributor\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/registerCompany",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"registerCompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Transporter: Transit Pro",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyCRN\": \"TPRO001\",\n    \"companyName\": \"Transit Pro\",\n    \"location\": {\n        \"address\": {\n            \"Street\": \"123WallWay\",\n            \"City\": \"Dallas\",\n            \"State\": \"TX\",\n            \"Zip\": 75089\n        }\n    },\n    \"organizationRole\": \"Transporter\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/registerCompany",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"registerCompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Retailer: Wallmart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"companyCRN\": \"WALLMART001\",\n    \"companyName\": \"Wallmart Dallas\",\n    \"location\": {\n        \"address\": {\n            \"Street\": \"123WallWay\",\n            \"City\": \"Dallas\",\n            \"State\": \"TX\",\n            \"Zip\": 75089\n        }\n    },\n    \"organizationRole\": \"Retailer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/registerCompany",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"registerCompany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Drug: Tylenol 200 - 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org2MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"drugName\": \"Tylenol 200\",\n    \"serialNo\": \"TY20004\",\n    \"mfgDate\": \"2022-10-20\",\n    \"expDate\":\"2024-10-20\",\n    \"companyCRN\":\"CIPLA001\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/addDrug",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addDrug"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Drug: Tylenol 200 - 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org2MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"drugName\": \"Tylenol 200\",\n    \"serialNo\": \"TY20002\",\n    \"mfgDate\": \"2022-10-20\",\n    \"expDate\":\"2024-10-20\",\n    \"companyCRN\":\"CIPLA001\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/addDrug",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addDrug"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Drug: Tylenol 200 - 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org2MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"drugName\": \"Tylenol 200\",\n    \"serialNo\": \"TY20006\",\n    \"mfgDate\": \"2022-10-20\",\n    \"expDate\":\"2024-10-20\",\n    \"companyCRN\":\"CIPLA001\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/addDrug",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addDrug"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create PO:Distributer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"WALLGREENS001\",\n    \"sellerCRN\": \"CIPLA001\",\n    \"drugName\": \"Tylenol 200\",\n    \"quantity\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/createPO",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createPO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create PO:Retailer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"WALLMART001\",\n    \"sellerCRN\": \"WALLGREENS001\",\n    \"drugName\": \"Tylenol 200\",\n    \"quantity\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/createPO",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createPO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Shipment:Manufacturer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"WALLGREENS001\",\n    \"drugName\": \"Tylenol 200\",\n    \"listOfAssets\": {\"assets\":[\"TY20001\",\"TY20002\"]},\n    \"transporterCRN\": \"TPRO001\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/createShipment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createShipment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Shipment:Distributer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"WALLMART001\",\n    \"drugName\": \"Tylenol 200\",\n    \"listOfAssets\": {\"assets\":[\"TY20001\",\"TY20002\"]},\n    \"transporterCRN\": \"TPRO001\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/createShipment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"createShipment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Shipment:Transporter-Distributer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"WALLGREENS001\",\n    \"drugName\": \"Tylenol 200\",\n    \"transporterCRN\": \"TPRO001\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/updateShipment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"updateShipment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Shipment:Transporter-Retailer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"buyerCRN\": \"WALLMART001\",\n    \"drugName\": \"Tylenol 200\",\n    \"transporterCRN\": \"TPRO001\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/updateShipment",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"updateShipment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retail Drug:Retailer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"drugName\": \"Tylenol 200\",\n    \"serialNo\": \"TY20001\",\n    \"retailerCRN\":\"WALLMART001\",\n    \"customerAadhar\":\"ADH01\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/retailDrug",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"retailDrug"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Current State of Drug",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"drugName\": \"Tylenol 200\",\n    \"serialNo\":\"TY20004\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/viewDrugCurrentState",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"viewDrugCurrentState"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View History of Drug",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "mspid",
+						"value": "Org1MSP",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"drugName\": \"Tylenol 200\",\n    \"serialNo\":\"TY20001\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/viewHistory",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"viewHistory"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

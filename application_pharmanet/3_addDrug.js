@@ -6,17 +6,15 @@
 
 const helper = require('./contractHelper');
 
-async function main(drugName, serialNo, mfgData, expDate, companyCRN) {
+async function main(drugName, serialNo, mfgDate, expDate, companyCRN, mspId) {
 
 	try {
 
-		const pharmanetContract = await helper.getContractInstance();
+		const pharmanetContract = await helper.getContractInstance(mspId);
 
 		// Create a new drug
 		console.log('.....Add a new drug');
-		const responseBuffer = await pharmanetContract.submitTransaction('addDrug', drugName, serialNo, mfgData, expDate, companyCRN);
-
-		// process response
+		const responseBuffer = await pharmanetContract.submitTransaction('addDrug', drugName, serialNo, mfgDate, expDate, companyCRN);
 		console.log('.....Processing Add new drug Transaction Response \n\n');
 		let response = JSON.parse(responseBuffer.toString());
 		console.log(response);
@@ -24,7 +22,6 @@ async function main(drugName, serialNo, mfgData, expDate, companyCRN) {
 		return response;
 
 	} catch (error) {
-
 		console.log(`\n\n ${error} \n\n`);
 		throw new Error(error);
 
